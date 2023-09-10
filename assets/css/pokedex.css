@@ -5,7 +5,6 @@
     margin: 0;
     padding: 0;
 }
-
 .nameRegister{
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -15,71 +14,54 @@
 .normal {
     background-color: #a6a877;
 }
-
 .grass {
     background-color: #77c850;
 }
-
 .fire {
     background-color: #ee7f30;
 }
-
 .water {
     background-color: #678fee;
 }
-
 .electric {
     background-color: #f7cf2e;
 }
-
 .ice {
     background-color: #98d5d7;
 }
-
 .ground {
     background-color: #dfbf69;
 }
-
 .flying {
     background-color: #a98ff0;
 }
-
 .poison {
     background-color: #a040a0;
 }
-
 .fighting {
     background-color: #bf3029;
 }
-
 .psychic {
     background-color: #f65687;
 }
-
 .dark {
     background-color: #725847;
 }
-
 .rock {
     background-color: #b8a137;
 }
-
 .bug {
     background-color: #a8b720;
 }
-
 .ghost {
     background-color: #6e5896;
 }
-
 .steel {
     background-color: #b9b7cf;
 }
-
 .dragon {
     background-color: #6f38f6;
 }
-
 .fairy {
     background-color: #f9aec7;
 }
@@ -136,6 +118,28 @@
     height: 120px;
 }
 
+/*Popup*/
+.popup{
+    display: none;
+    grid-template-columns: 1fr;
+    width: 100%;
+    height: 100vh;
+    list-style: none;
+    z-index: 9;
+    margin: 0;
+    padding: 1rem;
+    background-color: #fff;
+    position: absolute;
+    position: fixed;
+    top: 0;
+   
+}
+.poke-info{
+    height: 100%;
+    border-radius: 0;
+}
+
+/*Botoes*/
 .pagination{
     display: flex;
     flex-direction: row;
@@ -144,6 +148,8 @@
     width: 100%;
     padding: 1rem; 
 }
+
+
 
 .pagination button{
     padding: .25rem .5rem;
@@ -156,6 +162,24 @@
     font-size: 1.25rem;
 }
 
+.return{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: 100%; 
+}
+
+.return button{
+    padding: .25rem .5rem;
+    margin: .25rem 0;
+    background: none;
+    border: none;
+    border-radius: 1rem;
+}
+
+
+/*dimensões*/
 @media screen and (min-width: 767px){
     .listPokemon{
         grid-template-columns: 1fr 1fr;
@@ -166,4 +190,9 @@
     .listPokemon{
         grid-template-columns: 1fr 1fr 1fr;
     }
+}
+
+@keyframes animatePopup {
+    0%   {bottom: 0px; top: 50px;}
+    100%  {bottom: 50px; top:0px;}
 }
