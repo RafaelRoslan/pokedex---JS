@@ -2,7 +2,7 @@ const listPokemon    = document.getElementById('pokemonList');
 const loadMoreButton = document.getElementById('loadMoreButton');
 const closePokeInfo  = document.getElementById('close-popup');
 const popupPokeInfo  = document.getElementById('popInfo');
-const infoContent    = document.getElementById('info-content');
+const infoContent    = document.getElementById('area-content');
 
 
 const limit  = 20;
@@ -25,7 +25,7 @@ function convertToHTML(pokemon) {
                         <img src="${pokemon.img}" alt="${pokemon.name}">
                     </div>`
     li.addEventListener('click',()=>{
-        let statusContent = `<div class="void">  
+        let statusContent = `<div class="info-content">  
                                 <aside class="poke-info grass">
                                     
                                     <section class="info-pokemon">
