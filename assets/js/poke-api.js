@@ -2,7 +2,7 @@ const pokeApi ={};
 
 function convertDetail(pokeDetails){
     const pokemon  = new Pokemon();
-    pokemon.number = pokeDetails.id;
+    pokemon.number = pokeDetails.id.toString().padStart(3, '0');
     pokemon.name   = pokeDetails.name;
     
     const types = pokeDetails.types.map((typeSlot) => typeSlot.type.name);

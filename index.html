@@ -30,14 +30,40 @@
     </section>
     <!--POPUP-->
     <div id="popInfo" class="popup">
-        <section class="popup-pokemon">
-            <aside class="poke-info">
-
+        <div class="popup-pokemon">
+            <aside class="poke-info grass">
+                <div class="menu-info">
+                    <button id="close-popup"><img src="./assets/svg/arrow-left.svg" alt="botão retorno"></button>
+                    <button id="close-popup"><img src="./assets/svg/heart.svg" alt="botão favoritar"></button>
+                </div>
+                <section class="info-pokemon">
+                    <div class="register">
+                        <span class="name">Bulbasaur</span>
+                        <span class="number">#001</span>
+                    </div>
+                    <div class="detail">
+                        <ol class="types">
+                            <li class="type">grass</li>
+                            <li class="type">poison</li>
+                        </ol>
+                        <div class="imgPokemon">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"alt="${pokemon.name}">
+                        </div>
+                        
+                    </div>
+                     
+                </section>
             </aside>
-            <div class="return">
-                <button id="close-popup"><img src="./assets/svg/arrow-left.svg" alt="botão retorno"></button>
-            </div>
-        </section>
+            <aside class="info-status">
+                <ul class="nav-status">
+                    <li class="tab-status checked">Stats</li>
+                    <li class="tab-status">Moves</li>
+                </ul>
+                <section class="info-content">
+
+                </section>
+            </aside>
+        </div>
     </div>
 
 

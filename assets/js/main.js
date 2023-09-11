@@ -21,7 +21,9 @@ function convertToHTML(pokemon) {
                         </ol>
                         <img src="${pokemon.img}" alt="${pokemon.name}">
                     </div>`
-    li.addEventListener('click',()=>{console.log('foi');})
+    li.addEventListener('click',()=>{
+        popupPokeInfo.style.display = 'block';
+    })
     return li
     
 }
