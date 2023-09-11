@@ -1,7 +1,10 @@
 const listPokemon    = document.getElementById('pokemonList');
 const loadMoreButton = document.getElementById('loadMoreButton');
-const loadPokeInfo   = document.getElementById('close-popup');
+const closePokeInfo  = document.getElementById('close-popup');
 const popupPokeInfo  = document.getElementById('popInfo');
+const infoContent    = document.getElementById('info-content');
+
+
 const limit  = 20;
 
 const maxRecord = 151;
@@ -22,7 +25,67 @@ function convertToHTML(pokemon) {
                         <img src="${pokemon.img}" alt="${pokemon.name}">
                     </div>`
     li.addEventListener('click',()=>{
+        let statusContent = `<div class="void">  
+                                <aside class="poke-info grass">
+                                    
+                                    <section class="info-pokemon">
+                                        <div class="register">
+                                            <span class="name">Bulbasaur</span>
+                                            <span class="number">#001</span>
+                                        </div>
+                                        <div class="detail">
+                                            <ol class="types">
+                                                <li class="type">grass</li>
+                                                <li class="type">poison</li>
+                                            </ol>
+                                            <div class="imgPokemon">
+                                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"alt="${pokemon.name}">
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                    </section>
+                                </aside>
+                                <aside class="info-status">
+                                    <ul class="nav-status">
+                                        <li class="tab-status checked">Stats</li>
+                                        <li class="tab-status">Moves</li>
+                                    </ul>
+                                    <section class="info-content">
+                                        <ol class="poke-stats">
+                                            <li class="stats-item">
+                                                <h4 class="stats-name grass">Hp</h4>
+                                                <p class="stats-number">45</p>
+                                            </li>
+                                            <li class="stats-item">
+                                                <h4 class="stats-name grass">Atk</h4>
+                                                <p class="stats-number">49</p>
+                                            </li>
+                                            <li class="stats-item">
+                                                <h4 class="stats-name grass">Def</h4>
+                                                <p class="stats-number">49</p>
+                                            </li>
+                                            <li class="stats-item">
+                                                <h4 class="stats-name grass">Sp-Atk</h4>
+                                                <p class="stats-number">65</p>
+                                            </li>
+                                            <li class="stats-item">
+                                                <h4 class="stats-name grass">Sp-Def</h4>
+                                                <p class="stats-number">65</p>
+                                            </li>
+                                            <li class="stats-item">
+                                                <h4 class="stats-name grass">Spd</h4>
+                                                <p class="stats-number">45</p>
+                                            </li>
+                                        </ol>
+                                        
+                                    </section>
+                                </aside>
+                            </div>`
+        
+        infoContent.innerHTML = statusContent;
         popupPokeInfo.style.display = 'block';
+
     })
     return li
     
@@ -56,7 +119,7 @@ loadMoreButton.addEventListener('click',()=>{
     loadMorePokemons(offset, limit);
 });
 
-loadPokeInfo.addEventListener('click',()=>{
+closePokeInfo.addEventListener('click',()=>{
     popupPokeInfo.style.display = 'none';
 });
 

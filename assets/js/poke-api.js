@@ -11,6 +11,12 @@ function convertDetail(pokeDetails){
     pokemon.types = types;
     pokemon.type = type;
 
+    
+    for (let i = 0; i < Object.keys(pokemon.allstats).length; i++) {
+        Object.keys(pokemon.allstats)[i] = pokeDetails.stats[i].base_stat;
+        
+    }
+    
     pokemon.img = pokeDetails.sprites.other['official-artwork'].front_default;
 
     return pokemon;
