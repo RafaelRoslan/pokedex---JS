@@ -151,7 +151,7 @@
     list-style: none;
     z-index: 1;
     margin: 0;
-    background-color: #fff;
+    background-color: #00000091;
     position: absolute;
     position: fixed;
     top: 0;
@@ -160,18 +160,20 @@
 .popup-pokemon{
     width: 100%;
     height: 100%;
+    background-color: #fff;
 }
 
 .poke-info{
     width: 100%;
-    height: 50%;
-    border-radius: 0 0 18% 18%;
-    display: grid;
-    grid-template-rows: 1fr 4fr;
+    height: 100%;
+    border-radius: 0 0 5rem 5rem;
+    padding-top: 5rem;
 }
 
 .menu-info{
     display: flex;
+    position: fixed;
+    z-index: 3;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -185,6 +187,20 @@
     background: none;
     border: none;
     border-radius: 1rem;
+}
+
+.area-content{
+
+    width: 100%;
+    height: 100%;
+
+}
+
+.info-content{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 1fr 1fr;
 }
 
 .info-pokemon{
@@ -215,6 +231,7 @@
     display: flex;
     flex-direction: row;
     align-items: start;
+    padding-top: 1rem;
 }
 .info-pokemon .types{
     display: flex;
@@ -272,10 +289,59 @@
     height: 100%;
 }
 
+.info-status .poke-stats{
+    margin: 0.5rem;
+    padding: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.info-status .stats-item{
+    margin: .05rem;
+    padding: .15rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: .25rem;
+}
+
+.info-status .stats-name{
+    margin: .1rem;
+    padding: .25rem;
+    border-radius: 1rem;
+    text-align: center;
+    color: #fff;
+}
+
+.info-status .stats-number{
+    margin: .1rem;
+    padding: .25rem;
+    border: 1px solid #ddd;
+    border-radius: 0 1rem 1rem 0;
+    border-left: none;
+    text-align: center;
+}
+
+
 /*dimensões*/
 @media screen and (min-width: 767px){
     .listPokemon{
         grid-template-columns: 1fr 1fr;
+    }
+    .popup{
+        grid-template-columns: 1fr 1.5fr 1fr;
+        grid-template-rows:  1fr 2fr 1fr ;
+        grid-template-areas: "left-t mid-t right-t"
+                             "left-m mid right-m"
+                             "left-b mid-b right-b";
+    }
+    .popup-pokemon{
+        grid-area: mid;
+        border-radius: 2rem;
+    }
+
+    .popup-pokemon .poke-info{
+        border-radius: 2rem 2rem 5rem 5rem;
     }
 }
 
@@ -283,9 +349,19 @@
     .listPokemon{
         grid-template-columns: 1fr 1fr 1fr;
     }
-}
+    .popup{
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows:  1fr 2fr 1fr ;
+        grid-template-areas: "at bt ct dt et"
+                             "am bm cm dm em"
+                             "ab bb cb db eb";
+    }
+    .popup-pokemon{
+        grid-area: cm;
+        border-radius: 2rem;
+    }
 
-@keyframes animatePopup {
-    0%   {bottom: 0px; top: 50px;}
-    100%  {bottom: 50px; top:0px;}
+    .popup-pokemon .poke-info{
+        border-radius: 2rem 2rem 5rem 5rem;
+    }
 }
