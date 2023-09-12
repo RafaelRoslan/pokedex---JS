@@ -1,3 +1,4 @@
+const body           = document.getElementById('body-main'); 
 const listPokemon    = document.getElementById('pokemonList');
 const loadMoreButton = document.getElementById('loadMoreButton');
 const closePokeInfo  = document.getElementById('close-popup');
@@ -26,20 +27,19 @@ function convertToHTML(pokemon) {
                     </div>`
     li.addEventListener('click',()=>{
         let statusContent = `<div class="info-content">  
-                                <aside class="poke-info grass">
+                                <aside class="poke-info ${pokemon.type}">
                                     
                                     <section class="info-pokemon">
                                         <div class="register">
-                                            <span class="name">Bulbasaur</span>
-                                            <span class="number">#001</span>
+                                            <span class="name">${pokemon.name}</span>
+                                            <span class="number">#${pokemon.number}</span>
                                         </div>
                                         <div class="detail">
                                             <ol class="types">
-                                                <li class="type">grass</li>
-                                                <li class="type">poison</li>
+                                                ${pokemon.types.map((type)=> `<li class="type">${type}</li>`).join('')}
                                             </ol>
                                             <div class="imgPokemon">
-                                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"alt="${pokemon.name}">
+                                                <img src="${pokemon.img}"alt="${pokemon.name}">
                                             </div>
                                             
                                         </div>
@@ -54,28 +54,28 @@ function convertToHTML(pokemon) {
                                     <section class="info-content">
                                         <ol class="poke-stats">
                                             <li class="stats-item">
-                                                <h4 class="stats-name grass">Hp</h4>
-                                                <p class="stats-number">45</p>
+                                                <h4 class="stats-name ${pokemon.type}">Hp</h4>
+                                                <p class="stats-number">${pokemon.allstats.hp}</p>
                                             </li>
                                             <li class="stats-item">
-                                                <h4 class="stats-name grass">Atk</h4>
-                                                <p class="stats-number">49</p>
+                                                <h4 class="stats-name ${pokemon.type}">Atk</h4>
+                                                <p class="stats-number">${pokemon.allstats.atk}</p>
                                             </li>
                                             <li class="stats-item">
-                                                <h4 class="stats-name grass">Def</h4>
-                                                <p class="stats-number">49</p>
+                                                <h4 class="stats-name ${pokemon.type}">Def</h4>
+                                                <p class="stats-number">${pokemon.allstats.def}</p>
                                             </li>
                                             <li class="stats-item">
-                                                <h4 class="stats-name grass">Sp-Atk</h4>
-                                                <p class="stats-number">65</p>
+                                                <h4 class="stats-name ${pokemon.type}">Sp-Atk</h4>
+                                                <p class="stats-number">${pokemon.allstats.spAtk}</p>
                                             </li>
                                             <li class="stats-item">
-                                                <h4 class="stats-name grass">Sp-Def</h4>
-                                                <p class="stats-number">65</p>
+                                                <h4 class="stats-name ${pokemon.type}">Sp-Def</h4>
+                                                <p class="stats-number">${pokemon.allstats.spDef}</p>
                                             </li>
                                             <li class="stats-item">
-                                                <h4 class="stats-name grass">Spd</h4>
-                                                <p class="stats-number">45</p>
+                                                <h4 class="stats-name ${pokemon.type}">Spd</h4>
+                                                <p class="stats-number">${pokemon.allstats.spd}</p>
                                             </li>
                                         </ol>
                                         
@@ -83,8 +83,11 @@ function convertToHTML(pokemon) {
                                 </aside>
                             </div>`
         
+        
         infoContent.innerHTML = statusContent;
-        popupPokeInfo.style.display = 'block';
+        popupPokeInfo.style.display = 'grid';
+        body.style.overflowY = 'hidden';
+        console.log('foi');
 
     })
     return li
@@ -121,6 +124,7 @@ loadMoreButton.addEventListener('click',()=>{
 
 closePokeInfo.addEventListener('click',()=>{
     popupPokeInfo.style.display = 'none';
+    body.style.overflowY = 'auto';
 });
 
 

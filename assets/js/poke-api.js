@@ -11,11 +11,12 @@ function convertDetail(pokeDetails){
     pokemon.types = types;
     pokemon.type = type;
 
-    
-    for (let i = 0; i < Object.keys(pokemon.allstats).length; i++) {
-        Object.keys(pokemon.allstats)[i] = pokeDetails.stats[i].base_stat;
-        
-    }
+    pokemon.allstats.hp     = pokeDetails.stats[0].base_stat;
+    pokemon.allstats.atk    = pokeDetails.stats[1].base_stat;
+    pokemon.allstats.def    = pokeDetails.stats[2].base_stat;
+    pokemon.allstats.spAtk  = pokeDetails.stats[3].base_stat;
+    pokemon.allstats.spDef  = pokeDetails.stats[4].base_stat;
+    pokemon.allstats.spd    = pokeDetails.stats[5].base_stat;
     
     pokemon.img = pokeDetails.sprites.other['official-artwork'].front_default;
 

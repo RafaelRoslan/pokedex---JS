@@ -151,7 +151,7 @@
     list-style: none;
     z-index: 1;
     margin: 0;
-    background-color: #fff;
+    background-color: #00000091;
     position: absolute;
     position: fixed;
     top: 0;
@@ -160,6 +160,7 @@
 .popup-pokemon{
     width: 100%;
     height: 100%;
+    background-color: #fff;
 }
 
 .poke-info{
@@ -327,15 +328,40 @@
     .listPokemon{
         grid-template-columns: 1fr 1fr;
     }
+    .popup{
+        grid-template-columns: 1fr 1.5fr 1fr;
+        grid-template-rows:  1fr 2fr 1fr ;
+        grid-template-areas: "left-t mid-t right-t"
+                             "left-m mid right-m"
+                             "left-b mid-b right-b";
+    }
+    .popup-pokemon{
+        grid-area: mid;
+        border-radius: 2rem;
+    }
+
+    .popup-pokemon .poke-info{
+        border-radius: 2rem 2rem 5rem 5rem;
+    }
 }
 
 @media screen and (min-width: 991px){
     .listPokemon{
         grid-template-columns: 1fr 1fr 1fr;
     }
-}
+    .popup{
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows:  1fr 2fr 1fr ;
+        grid-template-areas: "at bt ct dt et"
+                             "am bm cm dm em"
+                             "ab bb cb db eb";
+    }
+    .popup-pokemon{
+        grid-area: cm;
+        border-radius: 2rem;
+    }
 
-@keyframes animatePopup {
-    0%   {bottom: 0px; top: 50px;}
-    100%  {bottom: 50px; top:0px;}
+    .popup-pokemon .poke-info{
+        border-radius: 2rem 2rem 5rem 5rem;
+    }
 }
